@@ -5,6 +5,9 @@ import { Track } from 'src/track/track.model';
 export class Artist extends Model {
   @Column
   name: string;
+
+  // @Column({ primaryKey: true })
+  // id: string;
   //tomat
 
   @HasMany(() => Track, 'artist')
