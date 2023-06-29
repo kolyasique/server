@@ -4,6 +4,7 @@ import { TrackService } from './track.service';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Track } from './track.model';
 import { Artist } from 'src/artist/artist.model';
+import { FileService } from 'src/file/file.service';
 
 @Module({
   //Сюда импортируем все модели которые мы будем использовать в Service
@@ -14,6 +15,6 @@ import { Artist } from 'src/artist/artist.model';
   //Это для использования репозитрия вне модуля
   exports: [SequelizeModule],
   controllers: [TrackController],
-  providers: [TrackService],
+  providers: [TrackService, FileService],
 })
 export class TrackModule {}
