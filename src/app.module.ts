@@ -19,6 +19,9 @@ import { Album } from './album/album.model';
 import { Comment } from './comment/comment.model';
 import { TrackAlbum } from './track-album/track-album.model';
 import { Artist } from './artist/artist.model';
+import { FileModule } from './file/file.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import * as path from 'path';
 
 @Module({
   //Здесь мы регистрируем все контроллеры и провайдеры у app и дакже другие изолированные модули
@@ -34,12 +37,17 @@ import { Artist } from './artist/artist.model';
       autoLoadModels: true,
       synchronize: true,
     }),
+    //Для раздачи статики
+    ServeStaticModule.forRoot({
+      rootPath: path.resolve(__dirname, 'static'),
+    }),
     CommentModule,
     ArtistModule,
     AlbumModule,
     TrackModule,
     UserModule,
     TrackAlbumModule,
+    FileModule,
   ],
   providers: [AppService],
   //   AuthorService, AlbumService

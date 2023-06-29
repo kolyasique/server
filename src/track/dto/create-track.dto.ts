@@ -6,7 +6,7 @@ export class CreateTrackDto {
   readonly artist;
   readonly text;
   // tomat: Все что ниже, по идее можно передать потом в функцию отдельно
-  //   readonly picture;
-  //   readonly audio;
-  //   readonly user_id;
+  readonly picture;
+  readonly audio;
+  readonly user_id;
 }
