@@ -29,7 +29,7 @@ import { Artist } from './artist/artist.model';
       port: 5432,
       username: 'postgres',
       password: '54321',
-      database: 'nest_next_new',
+      database: 'nest_next_one',
       models: [User, Track, Album, Comment, TrackAlbum, Artist],
       autoLoadModels: true,
       synchronize: true,

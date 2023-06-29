@@ -22,6 +22,7 @@ export class Track extends Model {
   @Column
   name: string;
 
+  // "Это на случай если будем использовать таблицу artist"
   @ForeignKey(() => Artist)
   @Column
   artist_id: number;
@@ -29,13 +30,16 @@ export class Track extends Model {
   @BelongsTo(() => Artist, 'artist_id')
   artist: Artist;
 
+  // @Column
+  // artist: string;
+
   @Column
   text: string;
 
-  @Column
+  @Column({ defaultValue: 0 })
   listens: number;
 
-  @Column
+  @Column({ allowNull: true })
   picture: string;
 
   @Column
