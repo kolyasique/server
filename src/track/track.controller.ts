@@ -23,6 +23,7 @@ export class TrackController {
       { name: 'audio', maxCount: 1 },
     ]),
   )
+  //
   //Здесь прописывается body (что мы получаем с клиента, и CreateTrackDto - что мы извлекаем)
   create(@Body() dto: CreateTrackDto) {
     //Здесь мы вызываем функцию из конструктора
