@@ -93,15 +93,20 @@ export class TrackService {
 
       const regex = `/${query}/g`;
 
-      const trackArr = await this.trackModel.findAll({
-        where: {
-          name: {
-            //Это типа совпадения с поиском
-            [Op.regexp]: query,
+      if (query) {
+        const trackArr = await this.trackModel.findAll({
+          where: {
+            name: {
+              //Это типа совпадения с поиском
+              [Op.iRegexp]: query,
+            },
           },
-        },
-      });
-      return trackArr;
+        });
+        return trackArr;
+      } else {
+        const trackArr = await this.trackModel.findAll();
+        return trackArr;
+      }
     } catch (error) {
       console.log(
         error.message,
